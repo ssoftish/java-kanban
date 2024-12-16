@@ -41,5 +41,13 @@ class TaskManagerTest {
         assertNotNull(taskManager.getSubtask(subtaskId), "Subtasks cannot be found by ID");
     }
 
+    @Test
+    public void changesAreDoneInTaskManagerToo() {
+        Task task = new Task("testTask", "test", TaskStatus.NEW);
+        int id = taskManager.create(task);
+        task.setDescription("test1");
+
+        assertEquals("test1", taskManager.getTask(id).getDescription(), "Description haven't changed in Task Manager");
+    }
 
 }
