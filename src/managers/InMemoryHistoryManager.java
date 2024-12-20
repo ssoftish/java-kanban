@@ -2,14 +2,14 @@ package managers;
 
 import models.Task;
 
-import util.Node;
+import models.Node;
 import java.util.*;
 
 public class InMemoryHistoryManager implements HistoryManager {
     private final HashMap<Integer, Node<Task>> history = new LinkedHashMap<>();
     private Node<Task> head;
     private Node<Task> tail;
-    //private final List<Task> history = new ArrayList<>(10);
+
 
     @Override
     public void addToHistory(Task task) {
@@ -26,16 +26,20 @@ public class InMemoryHistoryManager implements HistoryManager {
     @Override
     public void remove(int id) {
         removeNode(history.get(id));
+        history.remove(id);
     }
 
     private void linkLast(Task task) {
         if (history.containsKey(task.getId())) {
             removeNode(history.get(task.getId()));
         }
+
         final Node<Task> oldTail = tail;
         final Node<Task> newNode = new Node<>(task, tail, null);
+
         tail = newNode;
         history.put(task.getId(), newNode);
+
         if (oldTail == null) {
             head = newNode;
         } else {
@@ -46,31 +50,32 @@ public class InMemoryHistoryManager implements HistoryManager {
     private List<Task> getTasks() {
         List<Task> tasks = new LinkedList<>();
         Node<Task> currentNode = head;
+
         while (currentNode != null) {
             tasks.add(currentNode.getData());
             currentNode = currentNode.getNext();
         }
+
         return tasks;
     }
 
     private void removeNode(Node<Task> node) {
         if (node != null) {
             final Node<Task> next = node.getNext();
-            final Node<Task> previous = node.getPrevious();
-            node.setData(null);
+            final Node<Task> last = node.getLast();
 
             if (head == node && tail == node) {
                 head = null;
                 tail = null;
             } else if (head == node && tail != node) {
                 head = next;
-                head.setPrevious(null);
+                head.setLast(null);
             } else if (head != node && tail == node) {
-                tail = previous;
+                tail = last;
                 tail.setNext(null);
             } else {
-                previous.setNext(next);
-                next.setPrevious(previous);
+                last.setNext(next);
+                next.setLast(last);
             }
         }
     }

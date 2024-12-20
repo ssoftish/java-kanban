@@ -45,4 +45,13 @@ class HistoryManagerTest {
         assertEquals(task1, history.getLast(), "Node is not changing places for entries");
     }
 
+    @Test
+    public void tasksShouldBeDeletedFromHistory() {
+        HistoryManager historyManager = Managers.getDefaultHistory();
+        Task task = new Task("testTask", "test", TaskStatus.NEW);
+        historyManager.addToHistory(task);
+        historyManager.remove(task.getId());
+        assertFalse(historyManager.getHistory().contains(task), "Tasks are not deleted from history");
+    }
+
 }

@@ -50,4 +50,25 @@ class TaskManagerTest {
         assertEquals("test1", taskManager.getTask(id).getDescription(), "Description haven't changed in Task Manager");
     }
 
+    @Test
+    public void removedTasksShouldBeDeletedFromHistory() {
+        HistoryManager historyManager = Managers.getDefaultHistory();
+        Task task = new Task("testTask", "test", TaskStatus.NEW);
+        int id = taskManager.create(task);
+        Task testTask = taskManager.getTask(id);
+
+        Epic epic = new Epic("testEpic", "test", TaskStatus.NEW, new ArrayList<>());
+        int epicId = taskManager.create(epic);
+        Epic testEpic = taskManager.getEpic(epicId);
+
+        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId);
+        int subtaskId = taskManager.create(subtask);
+        Subtask testSubtask = taskManager.getSubtask(subtaskId);
+
+        taskManager.deleteTask(id);
+        taskManager.deleteEpic(epicId);
+
+        assertTrue(historyManager.getHistory().isEmpty(), "Tasks are not removed from history when deleted");
+    }
+
 }

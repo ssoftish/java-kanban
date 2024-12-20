@@ -5,29 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнены задачи 6 спринта">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/ManagersTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/java-kanban/models/EpicTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/java-kanban/models/SubtaskTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/java-kanban/models/TaskTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/HistoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/HistoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryHistoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryHistoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/tests/EpicTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/tests/HistoryManagerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/tests/ManagersTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/tests/SubtaskTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/tests/TaskManagerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/tests/TaskTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/HistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/HistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryHistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/managers/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/HistoryManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/EpicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/EpicTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +55,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.All in java-kanban.executor": "Run",
     "JUnit.EpicTest.executor": "Run",
     "JUnit.EpicTest.tasksShouldBeEqual.executor": "Coverage",
     "JUnit.HistoryManagerTest.executor": "Run",
@@ -101,8 +88,8 @@
       <recent name="managers" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="managers" />
       <recent name="models" />
+      <recent name="managers" />
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -110,7 +97,15 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TaskManagerTest">
+  <component name="RunManager" selected="JUnit.All in java-kanban">
+    <configuration name="All in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EpicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
@@ -122,16 +117,6 @@
       <option name="PACKAGE_NAME" value="models" />
       <option name="MAIN_CLASS_NAME" value="models.EpicTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EpicTest.tasksShouldBeEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.EpicTest" />
-      <option name="METHOD_NAME" value="tasksShouldBeEqual" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in java-kanban" />
+        <item itemvalue="JUnit.tests in java-kanban" />
         <item itemvalue="JUnit.TaskManagerTest" />
         <item itemvalue="JUnit.EpicTest" />
         <item itemvalue="JUnit.HistoryManagerTest" />
-        <item itemvalue="JUnit.tests in java-kanban" />
-        <item itemvalue="JUnit.EpicTest.tasksShouldBeEqual" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734205289297</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Выполнены задачи 6 спринта">
+      <option name="closed" value="true" />
+      <created>1734359843509</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734359843509</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +241,7 @@
     <SUITE FILE_PATH="coverage/java_kanban$HistoryManagerTest.ic" NAME="HistoryManagerTest Coverage Results" MODIFIED="1734357179380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>managers.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/java_kanban$tests_in_java_kanban.ic" NAME="tests in java-kanban Coverage Results" MODIFIED="1734356504046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/java_kanban$tests_in_java_kanban.ic" NAME="tests in java-kanban Coverage Results" MODIFIED="1734724704841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>models.*</FILTER>
     </SUITE>
   </component>
