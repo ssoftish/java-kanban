@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнены задачи 6 спринта">
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Добавлены тесты менеджеров">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/HistoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/HistoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryHistoryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/managers/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/HistoryManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,30 +45,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "JUnit.All in java-kanban.executor": "Run",
-    "JUnit.EpicTest.executor": "Run",
-    "JUnit.EpicTest.tasksShouldBeEqual.executor": "Coverage",
-    "JUnit.HistoryManagerTest.executor": "Run",
-    "JUnit.TaskManagerTest.executor": "Run",
-    "JUnit.tests in java-kanban.executor": "Coverage",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "sprint__6-solution",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Админ/Desktop/jnc.lf/java-kanban1",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JUnit.All in java-kanban.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EpicTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EpicTest.tasksShouldBeEqual.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.HistoryManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.tests in java-kanban.executor&quot;: &quot;Coverage&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__6-solution&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Админ/Desktop/jnc.lf/java-kanban1&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -216,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734359843509</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Добавлены тесты менеджеров">
+      <option name="closed" value="true" />
+      <created>1734726015784</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734726015784</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,7 +235,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="Выполнены задачи 6 спринта" />
-    <option name="LAST_COMMIT_MESSAGE" value="Выполнены задачи 6 спринта" />
+    <MESSAGE value="Добавлены тесты менеджеров" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены тесты менеджеров" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_kanban$EpicTest.ic" NAME="EpicTest Coverage Results" MODIFIED="1722069964698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

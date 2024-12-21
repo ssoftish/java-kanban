@@ -67,10 +67,10 @@ public class InMemoryHistoryManager implements HistoryManager {
             if (head == node && tail == node) {
                 head = null;
                 tail = null;
-            } else if (head == node && tail != node) {
+            } else if (head == node) {
                 head = next;
                 head.setLast(null);
-            } else if (head != node && tail == node) {
+            } else if (tail == node) {
                 tail = last;
                 tail.setNext(null);
             } else {
