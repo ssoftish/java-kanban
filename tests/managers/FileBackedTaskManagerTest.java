@@ -4,6 +4,8 @@ import managers.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FileBackedTaskManagerTest {
@@ -26,14 +28,15 @@ public class FileBackedTaskManagerTest {
     public void managerSavesTasks() {
         try {
             File file = File.createTempFile("testFile", ".txt");
-            FileBackedTaskManager manager = new FileBackedTaskManager(file);
-            Task task1 = new Task("testTask1", "task1", TaskStatus.NEW);
-            Task task2 = new Task("testTask2", "task2", TaskStatus.DONE);
+            FileBackedTaskManager manager1 = new FileBackedTaskManager(file);
 
-            int id1 = manager.create(task1);
-            int id2 = manager.create(task2);
+            int id1 = manager1.create(new Task("testTask1", "task1", TaskStatus.NEW));
+            int id2 = manager1.create(new Task("testTask2", "task2", TaskStatus.DONE));
 
-            assertEquals(2, manager.getTasks().size(), "Tasks are not added");
+            FileBackedTaskManager manager2 = new FileBackedTaskManager(file);
+            manager2 = manager2.loadFromFile(file);
+
+            assertEquals(manager2.getTasks(), manager1.getTasks(), "Tasks are not added");
         } catch (IOException e) {
             System.out.println("Test file wasn't created");
         }
@@ -43,21 +46,21 @@ public class FileBackedTaskManagerTest {
     public void managerLoadsTasksFromFile() {
         try {
             File file = File.createTempFile("testFile", ".txt");
+            FileBackedTaskManager manager1 = new FileBackedTaskManager(file);
             try (Writer fileWriter = new FileWriter(file);) {
-                fileWriter.write("1,TASK,Task1,NEW,task1,");
-                fileWriter.write("\n");
-
-                fileWriter.write("2,TASK,Task2,NEW,task2,");
-                fileWriter.write("\n");
+                int id1 = manager1.create(new Task("testTask","task",TaskStatus.NEW));
+                int id2 = manager1.create(new Epic("testEpic","epic", TaskStatus.NEW, new ArrayList<>()));
+                int id3 = manager1.create(new Subtask("testSubtask","subtask", TaskStatus.NEW, id2));
 
             } catch (IOException e) {
                 System.out.println("Error while putting data in file");
             }
 
-            FileBackedTaskManager manager = new FileBackedTaskManager(file);
-            manager = manager.loadFromFile(file);
+            FileBackedTaskManager manager = FileBackedTaskManager.loadFromFile(file);
 
-            assertEquals(2, manager.getTasks().size(), "File is not read");
+            assertEquals(1, manager.getTasks().size(), "File didn't read tasks");
+            assertEquals(1, manager.getEpics().size(), "File didn't read epics");
+            assertEquals(1, manager.getSubtasks().size(), "File didn't read subtasks");
         } catch (IOException e) {
             System.out.println("Test file wasn't created");
         }

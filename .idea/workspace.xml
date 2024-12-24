@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнена реализация FileBackedTaskManager">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryHistoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryHistoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Epic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Subtask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +57,8 @@
     "JUnit.All in java-kanban.executor": "Run",
     "JUnit.EpicTest.executor": "Run",
     "JUnit.EpicTest.tasksShouldBeEqual.executor": "Coverage",
+    "JUnit.FileBackedTaskManagerTest.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.managerSavesTasks.executor": "Run",
     "JUnit.HistoryManagerTest.executor": "Run",
     "JUnit.TaskManagerTest.executor": "Run",
     "JUnit.tests in java-kanban.executor": "Coverage",
@@ -92,7 +98,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in java-kanban">
+  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
     <configuration name="All in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
@@ -101,22 +107,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EpicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.EpicTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
@@ -125,9 +116,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.HistoryManagerTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileBackedTaskManagerTest.managerSavesTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="managers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="managers" />
+      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="managerSavesTasks" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -163,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.managerSavesTasks" />
         <item itemvalue="JUnit.All in java-kanban" />
         <item itemvalue="JUnit.tests in java-kanban" />
         <item itemvalue="JUnit.TaskManagerTest" />
-        <item itemvalue="JUnit.EpicTest" />
-        <item itemvalue="JUnit.HistoryManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734984376190</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Выполнена реализация FileBackedTaskManager">
+      <option name="closed" value="true" />
+      <created>1734984836544</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734984836544</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
