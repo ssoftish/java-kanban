@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_23_12_2024_15_51_[Changes]1" date="1734958377492" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 23.12.2024 15:51 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/java-kanban/managers/InMemoryHistoryManager.class" />
+    <option name="AFTER_PATH" value="out/production/java-kanban/managers/InMemoryHistoryManager.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51_[Changes]1/InMemoryHistoryManager.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/java-kanban/managers/InMemoryTaskManager.class" />
+    <option name="AFTER_PATH" value="out/production/java-kanban/managers/InMemoryTaskManager.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51_[Changes]1/InMemoryTaskManager.class" />
+  </binary>
+</changelist>
