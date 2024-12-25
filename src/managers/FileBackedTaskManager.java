@@ -8,7 +8,7 @@ import java.util.*;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
     private final File file;
-    private final String header = "id,type,name,status,description,epic";
+    private final static String HEADER = "id,type,name,status,description,epic";
 
     public FileBackedTaskManager(File file) {
         this.file = file;
@@ -16,7 +16,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
     public void save() {
         try (Writer fileWriter = new FileWriter(file)) {
-            fileWriter.write(header);
+            fileWriter.write(HEADER);
 
             for (Task task : getTasks()) {
                 fileWriter.write("\n");
@@ -131,7 +131,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     }
 
     private Task fromString(String value) {
-        int epicId = 0;
 
         String[] stringTask = value.split(",");
 
@@ -150,7 +149,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 epic.setId(id);
                 return epic;
             case "SUBTASK":
-                epicId = Integer.parseInt(stringTask[5]);
+                int epicId = Integer.parseInt(stringTask[5]);
                 Subtask subtask = new Subtask(name, description, status, epicId);
                 subtask.setId(id);
                 return subtask;
@@ -167,7 +166,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
             String[] list = str.split("\n");
 
             for (String task : list) {
-                if (!task.equals(manager.header)) {
+                if (!task.equals(HEADER)) {
                     if (!task.isEmpty()) {
                         Task newTask = manager.fromString(task);
 
