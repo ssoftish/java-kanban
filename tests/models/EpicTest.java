@@ -5,6 +5,8 @@ import managers.Managers;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class EpicTest {
@@ -24,11 +26,13 @@ public class EpicTest {
         ArrayList<Integer> subtaskIds = new ArrayList<>();
         Epic epic = new Epic("testTask","testing", TaskStatus.NEW, subtaskIds);
         int id = taskManager.create(epic);
-        Subtask subtask = new Subtask("testTask", "test", TaskStatus.IN_PROGRESS, id);
+        Subtask subtask = new Subtask("testTask", "test", TaskStatus.IN_PROGRESS, id, Duration.ofMinutes(5), LocalDateTime.now());
         int subtaskId = taskManager.create(subtask);
 
         taskManager.deleteSubtask(subtaskId);
 
         assertTrue(epic.getSubtasksIds().isEmpty(), "Irrelevant subtask IDs are kept");
     }
+
+
 }

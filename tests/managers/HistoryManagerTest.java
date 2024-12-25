@@ -4,6 +4,8 @@ import models.Task;
 import models.TaskStatus;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +15,7 @@ class HistoryManagerTest {
     @Test
     public void historyShouldNotBeNull() {
         HistoryManager historyManager = Managers.getDefaultHistory();
-        Task task = new Task("testTask", "test", TaskStatus.NEW);
+        Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now());
         historyManager.addToHistory(task);
         List<Task> history = historyManager.getHistory();
 
@@ -24,7 +26,7 @@ class HistoryManagerTest {
     @Test
     public void historyShouldBeNull() {
         HistoryManager historyManager = Managers.getDefaultHistory();
-        Task task = new Task("testTask", "test", TaskStatus.NEW);
+        Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now());
         historyManager.addToHistory(task);
         historyManager.remove(task.getId());
         List<Task> history = historyManager.getHistory();
@@ -35,8 +37,8 @@ class HistoryManagerTest {
     @Test
     public void nodeShouldReturnTheLatest() {
         HistoryManager historyManager = Managers.getDefaultHistory();
-        Task task1 = new Task("testTask1", "test", TaskStatus.NEW);
-        Task task2 = new Task("testTask2", "test", TaskStatus.NEW);
+        Task task1 = new Task("testTask1", "test", TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now());
+        Task task2 = new Task("testTask2", "test", TaskStatus.NEW, Duration.ofMinutes(15), LocalDateTime.now());
         historyManager.addToHistory(task1);
         historyManager.addToHistory(task2);
         historyManager.addToHistory(task1);
@@ -48,10 +50,22 @@ class HistoryManagerTest {
     @Test
     public void tasksShouldBeDeletedFromHistory() {
         HistoryManager historyManager = Managers.getDefaultHistory();
-        Task task = new Task("testTask", "test", TaskStatus.NEW);
+        Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now());
         historyManager.addToHistory(task);
         historyManager.remove(task.getId());
         assertFalse(historyManager.getHistory().contains(task), "Tasks are not deleted from history");
+    }
+
+    @Test
+    public void tasksShouldNotHaveDoubles() {
+        HistoryManager historyManager = Managers.getDefaultHistory();
+        Task task1 = new Task("testTask1", "test", TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now());
+        historyManager.addToHistory(task1);
+        historyManager.addToHistory(task1);
+
+        List<Task> history = historyManager.getHistory();
+
+        assertEquals(1, history.size(), "Tasks are duplicating");
     }
 
 }

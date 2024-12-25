@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_25_12_2024_12_55_[Changes]1" date="1735120528531" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 25.12.2024 12:55 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/java-kanban/managers/FileBackedTaskManager.class" />
+    <option name="AFTER_PATH" value="out/production/java-kanban/managers/FileBackedTaskManager.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55_[Changes]1/FileBackedTaskManager.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/test/java-kanban/managers/FileBackedTaskManagerTest.class" />
+    <option name="AFTER_PATH" value="out/test/java-kanban/managers/FileBackedTaskManagerTest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55_[Changes]1/FileBackedTaskManagerTest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/java-kanban/models/Epic.class" />
+    <option name="AFTER_PATH" value="out/production/java-kanban/models/Epic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55_[Changes]1/Epic.class" />
+  </binary>
+</changelist>
