@@ -1,4 +1,5 @@
 package managers;
+import exception.ManagerSaveException;
 import models.*;
 
 import java.io.*;
@@ -7,6 +8,7 @@ import java.util.*;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
     private final File file;
+    private final String header = "id,type,name,status,description,epic";
 
     public FileBackedTaskManager(File file) {
         this.file = file;
@@ -14,7 +16,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
     public void save() {
         try (Writer fileWriter = new FileWriter(file)) {
-            String header = "id,type,name,status,description,epic";
             fileWriter.write(header);
 
             for (Task task : getTasks()) {
@@ -32,7 +33,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 fileWriter.write(taskToString(subtask));
             }
         } catch (IOException e) {
-            System.out.println("Error while saving");
+            throw new ManagerSaveException("Error while saving");
         }
     }
 
@@ -115,58 +116,42 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
 
     private String taskToString(Task task) {
-        return task.getId() + "," + TaskType.TASK.toString() + "," + task.getName()  + "," +
+        return task.getId() + "," + task.getType() + "," + task.getName()  + "," +
                 task.getStatus() + "," + task.getDescription() + ",";
     }
 
     private String taskToString(Epic epic) {
-        return epic.getId() + "," + TaskType.EPIC.toString() + "," + epic.getName()  + "," +
+        return epic.getId() + "," + epic.getType() + "," + epic.getName()  + "," +
                 epic.getStatus() + "," + epic.getDescription() + ",";
     }
 
     private String taskToString(Subtask subtask) {
-        return subtask.getId() + "," + TaskType.SUBTASK.toString() + "," + subtask.getName()  + "," + subtask.getStatus()
+        return subtask.getId() + "," + subtask.getType() + "," + subtask.getName()  + "," + subtask.getStatus()
                 + "," + subtask.getDescription() + "," + subtask.getEpicId() + ",";
     }
 
-    private static Task fromString(String value) {
-        int id, epicId = 0;
-        String name, description;
-        TaskStatus status = null;
-        TaskType type;
-        Task task = null;
-        Epic epic = null;
-        Subtask subtask = null;
+    private Task fromString(String value) {
+        int epicId = 0;
 
         String[] stringTask = value.split(",");
 
-        id = Integer.parseInt(stringTask[0]);
-        name = stringTask[2];
-        description = stringTask[4];
-
-        switch(stringTask[3]) {
-            case "NEW":
-                status = TaskStatus.NEW;
-                break;
-            case "IN_PROGRESS":
-                status = TaskStatus.IN_PROGRESS;
-                break;
-            case "DONE":
-                status = TaskStatus.DONE;
-                break;
-        }
+        int id = Integer.parseInt(stringTask[0]);
+        String name = stringTask[2];
+        String description = stringTask[4];
+        TaskStatus status = TaskStatus.valueOf(stringTask[3]);
 
         switch(stringTask[1]) {
             case "TASK":
-                task = new Task(name, description, status);
+                Task task = new Task(name, description, status);
                 task.setId(id);
                 return task;
             case "EPIC":
-                epic = new Epic(name, description, status, new ArrayList<>());
+                Epic epic = new Epic(name, description, status, new ArrayList<>());
                 epic.setId(id);
                 return epic;
             case "SUBTASK":
-                subtask = new Subtask(name, description, status, epicId);
+                epicId = Integer.parseInt(stringTask[5]);
+                Subtask subtask = new Subtask(name, description, status, epicId);
                 subtask.setId(id);
                 return subtask;
         }
@@ -182,19 +167,27 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
             String[] list = str.split("\n");
 
             for (String task : list) {
-                if (!task.equals("id,type,name,status,description,epic")) {
+                if (!task.equals(manager.header)) {
                     if (!task.isEmpty()) {
-                        Task newTask = fromString(task);
+                        Task newTask = manager.fromString(task);
 
                         if (newTask != null) {
-                            if (newTask.getType() == TaskType.TASK) {
-                                manager.tasks.put(newTask.getId(), newTask);
-                            } else if (newTask.getType() == TaskType.EPIC) {
-                                Epic epic = (Epic) fromString(task);
-                                manager.epics.put(epic.getId(), epic);
-                            } else if (newTask.getType() == TaskType.SUBTASK) {
-                                Subtask subtask = (Subtask) fromString(task);
-                                manager.subtasks.put(subtask.getId(), subtask);
+                            switch (newTask.getType()) {
+                                case TaskType.TASK:
+                                    manager.tasks.put(newTask.getId(), newTask);
+                                    break;
+                                case TaskType.EPIC:
+                                    Epic epic = (Epic) manager.fromString(task);
+                                    manager.epics.put(epic.getId(), epic);
+                                    break;
+                                case TaskType.SUBTASK:
+                                    Subtask subtask = (Subtask) manager.fromString(task);
+                                    manager.subtasks.put(subtask.getId(), subtask);
+
+                                    Epic newEpic = manager.getEpic(subtask.getEpicId());
+                                    newEpic.addSubtaskId(subtask.getId());
+                                    manager.epics.put(newEpic.getId(), newEpic);
+                                    break;
                             }
                         }
 
@@ -208,7 +201,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
             manager.idGenerator = newId;
         } catch (IOException e) {
-            System.out.println("Error in loading from file");
+            throw new ManagerSaveException("Error in loading from file");
         }
 
         return manager;

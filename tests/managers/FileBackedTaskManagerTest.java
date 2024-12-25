@@ -24,7 +24,7 @@ public class FileBackedTaskManagerTest {
         }
     }
 
-    @Test
+   /* @Test
     public void managerSavesTasks() {
         try {
             File file = File.createTempFile("testFile", ".txt");
@@ -40,10 +40,10 @@ public class FileBackedTaskManagerTest {
         } catch (IOException e) {
             System.out.println("Test file wasn't created");
         }
-    }
+    }*/
 
     @Test
-    public void managerLoadsTasksFromFile() {
+    public void managerSavesTasksAndLoadsTasksFromFile() {
         try {
             File file = File.createTempFile("testFile", ".txt");
             FileBackedTaskManager manager1 = new FileBackedTaskManager(file);
@@ -58,9 +58,13 @@ public class FileBackedTaskManagerTest {
 
             FileBackedTaskManager manager = FileBackedTaskManager.loadFromFile(file);
 
-            assertEquals(1, manager.getTasks().size(), "File didn't read tasks");
-            assertEquals(1, manager.getEpics().size(), "File didn't read epics");
-            assertEquals(1, manager.getSubtasks().size(), "File didn't read subtasks");
+            assertNotNull(manager1.getTasks(), "Manager didn't save tasks");
+            assertNotNull(manager1.getEpics(), "Manager didn't save epics");
+            assertNotNull(manager1.getSubtasks(), "Manager didn't save subtasks");
+
+            assertEquals(manager1.getTasks(), manager.getTasks(), "Manager didn't read tasks");
+            assertEquals(manager1.getEpics(), manager.getEpics(), "Manager didn't read epics");
+            assertEquals(manager1.getSubtasks(), manager.getSubtasks(), "Manager didn't read subtasks");
         } catch (IOException e) {
             System.out.println("Test file wasn't created");
         }
