@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Добавлены тесты менеджеров">
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryHistoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Epic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,7 @@
       <list>
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -26,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main1" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,6 +54,8 @@
     &quot;JUnit.All in java-kanban.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EpicTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EpicTest.tasksShouldBeEqual.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.FileBackedTaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FileBackedTaskManagerTest.managerSavesTasks.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.HistoryManagerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TaskManagerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.tests in java-kanban.executor&quot;: &quot;Coverage&quot;,
@@ -63,10 +67,10 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint__6-solution&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__7-solution-in-file-manager&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Админ/Desktop/jnc.lf/java-kanban1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -91,7 +95,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in java-kanban">
+  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
     <configuration name="All in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
@@ -100,22 +104,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EpicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="models" />
-      <option name="MAIN_CLASS_NAME" value="models.EpicTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
@@ -124,9 +113,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.HistoryManagerTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileBackedTaskManagerTest.managerSavesTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="managers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="managers" />
+      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="managerSavesTasks" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -162,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.managerSavesTasks" />
         <item itemvalue="JUnit.All in java-kanban" />
         <item itemvalue="JUnit.tests in java-kanban" />
         <item itemvalue="JUnit.TaskManagerTest" />
-        <item itemvalue="JUnit.EpicTest" />
-        <item itemvalue="JUnit.HistoryManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +222,39 @@
       <option name="project" value="LOCAL" />
       <updated>1734726015784</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Выполнена реализация FileBackedTaskManager">
+      <option name="closed" value="true" />
+      <created>1734984376190</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734984376190</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Выполнена реализация FileBackedTaskManager">
+      <option name="closed" value="true" />
+      <created>1734984836544</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734984836544</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Исправлено осуществление записи в файл и выгрузки из файла">
+      <option name="closed" value="true" />
+      <created>1735073651855</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1735073651855</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest">
+      <option name="closed" value="true" />
+      <created>1735113836032</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735113836032</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,7 +272,10 @@
     <MESSAGE value="1" />
     <MESSAGE value="Выполнены задачи 6 спринта" />
     <MESSAGE value="Добавлены тесты менеджеров" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлены тесты менеджеров" />
+    <MESSAGE value="Выполнена реализация FileBackedTaskManager" />
+    <MESSAGE value="Исправлено осуществление записи в файл и выгрузки из файла" />
+    <MESSAGE value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_kanban$EpicTest.ic" NAME="EpicTest Coverage Results" MODIFIED="1722069964698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

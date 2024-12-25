@@ -9,6 +9,7 @@ public class Epic extends Task {
     public Epic(String name, String description, TaskStatus status, ArrayList<Integer> subtaskIds) {
         super(name, description, status);
         this.subtaskIds = subtaskIds;
+        this.type = TaskType.EPIC;
     }
 
     public ArrayList<Integer> getSubtasksIds() {
@@ -23,10 +24,9 @@ public class Epic extends Task {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
         Epic epic = (Epic) obj;
-        return (getId() == epic.getId()) &&
-                Objects.equals(getName(), epic.getName()) &&
-                Objects.equals(getDescription(), epic.getDescription());
+        return (getId() == epic.getId()) && Objects.equals(getSubtasksIds(), epic.getSubtasksIds());
     }
 
     @Override
