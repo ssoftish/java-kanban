@@ -13,8 +13,7 @@ import java.util.*;
 public class FileBackedTaskManager extends InMemoryTaskManager {
     private final File file;
     private final static String HEADER = "id,type,name,status,description,duration,startTime,epic";
-    private final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm|dd.MM.yyy");
-    //private final TimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
+    private final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     public FileBackedTaskManager(File file) {
         this.file = file;

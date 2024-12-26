@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeEach;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -125,6 +127,35 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int id2 = manager.create(subtask2);
 
         assertEquals(TaskStatus.IN_PROGRESS, epic.getStatus(), "Epic status is not assigned correctly when all subtasks are in progress");
+    }
+
+    @Test
+    public void prioritisedTasksAreNotIntersecting() {
+        Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(17), LocalDateTime.now());
+        Epic epic = new Epic("testEpic", "test", TaskStatus.NEW, new ArrayList<>());
+
+        int taskId = manager.create(task);
+        int epicId = manager.create(epic);
+
+        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(5), LocalDateTime.now());
+
+        int subtaskId = manager.create(subtask);
+
+        Set<Task> testSet = manager.getPrioritisedTasks();
+        boolean test = true;
+
+        for (Task testTask : testSet) {
+            if (!Objects.equals(manager.getTasks().get(taskId), testTask) &&
+                    !Objects.equals(manager.getSubtasks().get(subtaskId), testTask)) {
+                if (!manager.taskValidation(testTask)) {
+                    test = false;
+                    break;
+                }
+            }
+
+        }
+
+        assertTrue(test, "Tasks in prioritised tasks list are intersecting");
     }
 
 }

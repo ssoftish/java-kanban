@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Внесены правки">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_12_2024_15_51__Changes_1.xml" afterDir="false" />
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнены задачи 8 спринта">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/FileBackedTaskManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/FileBackedTaskManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/HistoryManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/FileBackedTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/FileBackedTaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/TaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/TaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/models/Epic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/models/Epic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/models/Subtask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/models/Subtask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/models/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/models/Task.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/models/EpicTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/models/EpicTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/models/SubtaskTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/models/SubtaskTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/models/TaskTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/models/TaskTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/TaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Epic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Subtask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/managers/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/HistoryManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/EpicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/EpicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/SubtaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/SubtaskTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/TaskTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735113836032</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Выполнены задачи 8 спринта">
+      <option name="closed" value="true" />
+      <created>1735167297606</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735167297606</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,7 +293,8 @@
     <MESSAGE value="Выполнена реализация FileBackedTaskManager" />
     <MESSAGE value="Исправлено осуществление записи в файл и выгрузки из файла" />
     <MESSAGE value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
+    <MESSAGE value="Выполнены задачи 8 спринта" />
+    <option name="LAST_COMMIT_MESSAGE" value="Выполнены задачи 8 спринта" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_kanban$EpicTest.ic" NAME="EpicTest Coverage Results" MODIFIED="1722069964698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

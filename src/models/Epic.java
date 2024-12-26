@@ -52,12 +52,13 @@ public class Epic extends Task {
         if (obj == null || getClass() != obj.getClass()) return false;
         if (!super.equals(obj)) return false;
         Epic epic = (Epic) obj;
-        return (getId() == epic.getId()) && Objects.equals(getSubtasksIds(), epic.getSubtasksIds());
+        return (getId() == epic.getId()) && Objects.equals(getSubtasksIds(), epic.getSubtasksIds())
+                && Objects.equals(getEndTime(), epic.getEndTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), subtaskIds);
+        return Objects.hash(super.hashCode(), subtaskIds, getEndTime());
     }
 
     @Override

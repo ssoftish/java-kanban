@@ -11,7 +11,7 @@ public class Task {
     protected TaskStatus status;
     protected TaskType type;
     protected Duration duration;
-    LocalDateTime startTime;
+    protected LocalDateTime startTime;
 
     protected Task(String name, String description, TaskStatus status) {
         this.name = name;
@@ -89,11 +89,14 @@ public class Task {
         Task task = (Task) o;
         return getId() == task.getId() && Objects.equals(getName(),
                 task.getName()) && Objects.equals(getDescription(),
-                task.getDescription()) && getStatus() == task.getStatus();
+                task.getDescription()) && getStatus() == task.getStatus() &&
+                Objects.equals(getDuration(), task.getDuration()) &&
+                Objects.equals(getStartTime(), task.getStartTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getDescription(), getStatus());
+        return Objects.hash(getId(), getName(), getDescription(),
+                getStatus(), getDuration(), getStartTime());
     }
 }
