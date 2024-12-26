@@ -145,14 +145,10 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         boolean test = true;
 
         for (Task testTask : testSet) {
-            if (!Objects.equals(manager.getTasks().get(taskId), testTask) &&
-                    !Objects.equals(manager.getSubtasks().get(subtaskId), testTask)) {
-                if (!manager.taskValidation(testTask)) {
-                    test = false;
-                    break;
-                }
+            if (!manager.taskValidation(testTask)) {
+                test = false;
+                break;
             }
-
         }
 
         assertTrue(test, "Tasks in prioritised tasks list are intersecting");

@@ -30,13 +30,15 @@ public class InMemoryTaskManager implements TaskManager {
         boolean answer = true;
 
         for (Task otherTask : tasks) {
-            if ((task.getStartTime() != null) && (!Objects.equals(task.getId(), otherTask.getId()))) {
-                if (task.getStartTime().isAfter(otherTask.getEndTime()) ||
-                        otherTask.getStartTime().isAfter(task.getEndTime())) {
-                    answer = true;
-                } else {
-                    answer = false;
-                    break;
+            if (task.getStartTime() != null) {
+                if ((!Objects.equals(task.getId(), otherTask.getId()))) {
+                    if (task.getStartTime().isAfter(otherTask.getEndTime()) ||
+                            otherTask.getStartTime().isAfter(task.getEndTime())) {
+                        answer = true;
+                    } else {
+                        answer = false;
+                        break;
+                    }
                 }
             } else {
                 answer = false;
