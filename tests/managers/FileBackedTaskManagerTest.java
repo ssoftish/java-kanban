@@ -38,7 +38,7 @@ public class FileBackedTaskManagerTest extends ManagerTest<FileBackedTaskManager
 
             int id1 = manager1.create(new Task("testTask","task",TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now()));
             int id2 = manager1.create(new Epic("testEpic","epic", TaskStatus.NEW, new ArrayList<>(), Duration.ofMinutes(1), LocalDateTime.MAX.minusMinutes(1)));
-            int id3 = manager1.create(new Subtask("testSubtask","subtask", TaskStatus.NEW, id2, Duration.ofMinutes(3), LocalDateTime.now()));
+            int id3 = manager1.create(new Subtask("testSubtask","subtask", TaskStatus.NEW, id2, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(8)));
 
             manager = FileBackedTaskManager.loadFromFile(file);
 

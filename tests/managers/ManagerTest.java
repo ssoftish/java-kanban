@@ -51,8 +51,8 @@ abstract class ManagerTest<T extends TaskManager> {
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(2));
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now().plusMinutes(6));
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
 
@@ -64,17 +64,18 @@ abstract class ManagerTest<T extends TaskManager> {
     @Test
     void shouldUpdateTasks() {
         Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(1), LocalDateTime.now());
-        Task newTask = new Task("testTask", "newTest", TaskStatus.NEW, Duration.ofMinutes(2), LocalDateTime.now());
+        Task newTask = new Task("testTask", "newTest", TaskStatus.NEW, Duration.ofMinutes(2), LocalDateTime.now().plusMinutes(2));
         Epic epic = new Epic("testEpic", "test", TaskStatus.NEW, new ArrayList<>(), Duration.ofMillis(0), LocalDateTime.MAX.minusDays(5));
         Epic newEpic = new Epic("testEpic", "newTest", TaskStatus.NEW, new ArrayList<>(), Duration.ofMillis(0), LocalDateTime.MAX.minusDays(5));
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask = new Subtask("testSubtask1", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask newSubtask = new Subtask("testSubtask1", "newTest", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask1", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(5));
+        Subtask newSubtask = new Subtask("testSubtask1", "newTest", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(9));
         int id = manager.create(subtask);
         newEpic.setId(epicId);
         newSubtask.setId(id);
+        newTask.setId(taskId);
 
         manager.updateTask(newTask);
         manager.updateEpic(newEpic);
@@ -94,7 +95,7 @@ abstract class ManagerTest<T extends TaskManager> {
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(5));
         int id = manager.create(subtask);
 
         manager.deleteTask(taskId);
@@ -114,7 +115,7 @@ abstract class ManagerTest<T extends TaskManager> {
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(6));
         int id = manager.create(subtask);
 
         manager.deleteTasks();
@@ -134,7 +135,7 @@ abstract class ManagerTest<T extends TaskManager> {
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(5));
         int id = manager.create(subtask);
 
         Task newTask = manager.getTask(taskId);
@@ -149,7 +150,7 @@ abstract class ManagerTest<T extends TaskManager> {
     @Test
     void shouldReturnHistory() {
         Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(1), LocalDateTime.now());
-        Task newTask = new Task("testTask", "newTest", TaskStatus.NEW, Duration.ofMinutes(2), LocalDateTime.now());
+        Task newTask = new Task("testTask", "newTest", TaskStatus.NEW, Duration.ofMinutes(2), LocalDateTime.now().plusMinutes(5));
         int taskId = manager.create(task);
         manager.updateTask(newTask);
 
@@ -162,7 +163,7 @@ abstract class ManagerTest<T extends TaskManager> {
         int epicId = manager.create(epic);
 
         Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now().plusMinutes(7));
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
 
@@ -179,7 +180,7 @@ abstract class ManagerTest<T extends TaskManager> {
         int epicId = manager.create(epic);
 
         Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now().plusMinutes(6));
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
 

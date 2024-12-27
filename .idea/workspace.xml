@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде">
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Исправлена реализация функции taskValidation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/FileBackedTaskManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/FileBackedTaskManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/FileBackedTaskManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/FileBackedTaskManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/ManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/ManagerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/managers/TaskManagerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/managers/ManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/ManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735249637337</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Исправлена реализация функции taskValidation">
+      <option name="closed" value="true" />
+      <created>1735256058739</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735256058739</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,7 +307,8 @@
     <MESSAGE value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
     <MESSAGE value="Выполнены задачи 8 спринта" />
     <MESSAGE value="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде" />
+    <MESSAGE value="Исправлена реализация функции taskValidation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправлена реализация функции taskValidation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_kanban$EpicTest.ic" NAME="EpicTest Coverage Results" MODIFIED="1722069964698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

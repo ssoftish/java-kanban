@@ -30,7 +30,7 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(5), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(5), LocalDateTime.now().plusMinutes(30));
 
         int subtaskId = manager.create(subtask);
 
@@ -63,7 +63,7 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int epicId = manager.create(epic);
         Epic testEpic = manager.getEpic(epicId);
 
-        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(56), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(56), LocalDateTime.now().plusMinutes(23));
         int subtaskId = manager.create(subtask);
         Subtask testSubtask = manager.getSubtask(subtaskId);
 
@@ -79,7 +79,7 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int epicId = manager.create(epic);
 
         Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now().plusMinutes(5));
 
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
@@ -93,7 +93,7 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int epicId = manager.create(epic);
 
         Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.NEW, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.NEW, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.NEW, epicId, Duration.ofMinutes(1), LocalDateTime.now().plusMinutes(5));
 
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
@@ -107,7 +107,7 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int epicId = manager.create(epic);
 
         Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.DONE, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.DONE, epicId, Duration.ofMinutes(1), LocalDateTime.now().minusMinutes(13));
 
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
@@ -121,7 +121,7 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
         int epicId = manager.create(epic);
 
         Subtask subtask1 = new Subtask("testSubtask1", "test1", TaskStatus.IN_PROGRESS, epicId, Duration.ofMinutes(3), LocalDateTime.now());
-        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.IN_PROGRESS, epicId, Duration.ofMinutes(1), LocalDateTime.now());
+        Subtask subtask2 = new Subtask("testSubtask2", "test2", TaskStatus.IN_PROGRESS, epicId, Duration.ofMinutes(1), LocalDateTime.now().plusMinutes(5));
 
         int id1 = manager.create(subtask1);
         int id2 = manager.create(subtask2);
@@ -130,24 +130,23 @@ class TaskManagerTest extends ManagerTest<TaskManager> {
     }
 
     @Test
-    public void prioritisedTasksAreNotIntersecting() {
+    public void tasksAreNotIntersecting() {
         Task task = new Task("testTask", "test", TaskStatus.NEW, Duration.ofMinutes(17), LocalDateTime.now());
         Epic epic = new Epic("testEpic", "test", TaskStatus.NEW, new ArrayList<>());
 
         int taskId = manager.create(task);
         int epicId = manager.create(epic);
 
-        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(5), LocalDateTime.now());
+        Subtask subtask = new Subtask("testSubtask", "test", TaskStatus.NEW, epicId, Duration.ofMinutes(5), LocalDateTime.now().plusMinutes(30));
 
         int subtaskId = manager.create(subtask);
 
         Set<Task> testSet = manager.getPrioritisedTasks();
         boolean test = true;
 
-        for (Task testTask : testSet) {
-            if (!manager.taskValidation(testTask)) {
+        if (!((subtask.getStartTime().isAfter(task.getEndTime())) || (subtask.getStartTime().isBefore(task.getStartTime())))) {
+            if (!manager.getSubtasks().contains(subtask)) {
                 test = false;
-                break;
             }
         }
 

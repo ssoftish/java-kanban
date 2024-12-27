@@ -49,6 +49,4 @@ public interface TaskManager {
     List<Subtask> getEpicSubtasks(int epicId);
 
     Set<Task> getPrioritisedTasks();
-
-    boolean taskValidation(Task task);
 }

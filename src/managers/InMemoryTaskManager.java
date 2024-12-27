@@ -31,7 +31,7 @@ public class InMemoryTaskManager implements TaskManager {
 
         for (Task otherTask : tasks) {
             if (task.getStartTime() != null) {
-                if ((!Objects.equals(task.getId(), otherTask.getId()))) {
+                if ((!Objects.equals(task, otherTask))) {
                     if (task.getStartTime().isAfter(otherTask.getEndTime()) ||
                             otherTask.getStartTime().isAfter(task.getEndTime())) {
                         answer = true;
@@ -51,13 +51,18 @@ public class InMemoryTaskManager implements TaskManager {
     private Integer makeId() {
         return idGenerator++;
     }
+
     @Override
     public Integer create(Task task) {
-        int id = makeId();
-        task.setId(id);
-        tasks.put(id, task);
-        if (taskValidation(task)) prioritisedTasks.add(task);
-        return id;
+        if (taskValidation(task)) {
+            int id = makeId();
+            task.setId(id);
+            tasks.put(id, task);
+            prioritisedTasks.add(task);
+            return id;
+        }
+
+        return null;
     }
 
     @Override
@@ -76,15 +81,19 @@ public class InMemoryTaskManager implements TaskManager {
             return null;
         }
 
-        int id = makeId();
-        subtask.setId(id);
-        subtasks.put(id, subtask);
-        if (taskValidation(subtask)) prioritisedTasks.add(subtask);
-        epic.addSubtaskId(id);
-        checkEpicStatus(epic.getId());
-        setEpicTimeAndDuration(epic.getId());
+        if (taskValidation(subtask)) {
+            int id = makeId();
+            subtask.setId(id);
+            subtasks.put(id, subtask);
+            prioritisedTasks.add(subtask);
+            epic.addSubtaskId(id);
+            checkEpicStatus(epic.getId());
+            setEpicTimeAndDuration(epic.getId());
 
-        return id;
+            return id;
+        }
+
+        return null;
     }
 
     @Override
@@ -168,22 +177,23 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public void updateTask(Task task) {
         int id = task.getId();
-        if (tasks.containsKey(id)) {
+        if (tasks.containsKey(id) && taskValidation(task)) {
             prioritisedTasks.remove(tasks.get(id));
             tasks.replace(id, task);
-            if (taskValidation(task)) prioritisedTasks.add(task);
+            prioritisedTasks.add(task);
         }
     }
 
     @Override
     public void updateSubtask(Subtask subtask) {
         int id = subtask.getId();
-        if (subtasks.containsKey(id)) {
+        if (subtasks.containsKey(id) && taskValidation(subtask)) {
             prioritisedTasks.remove(subtasks.get(id));
             subtasks.replace(id, subtask);
-            if (taskValidation(subtask)) prioritisedTasks.add(subtask);
+            prioritisedTasks.add(subtask);
             int epicId = subtask.getEpicId();
             checkEpicStatus(epicId);
+            setEpicTimeAndDuration(epicId);
         }
     }
 
