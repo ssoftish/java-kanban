@@ -1,5 +1,7 @@
 package models;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Task {
@@ -8,12 +10,23 @@ public class Task {
     protected String description;
     protected TaskStatus status;
     protected TaskType type;
+    protected Duration duration;
+    protected LocalDateTime startTime;
 
-    public Task(String name, String description, TaskStatus status) {
+    protected Task(String name, String description, TaskStatus status) {
         this.name = name;
         this.description = description;
         this.status = status;
         this.type = TaskType.TASK;
+    }
+
+    public Task(String name, String description, TaskStatus status, Duration duration, LocalDateTime startTime) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.type = TaskType.TASK;
+        this.duration = duration;
+        this.startTime = startTime;
     }
 
     public TaskType getType() {
@@ -40,6 +53,18 @@ public class Task {
         return description;
     }
 
+    public LocalDateTime getEndTime() {
+        return startTime.plus(duration);
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public Duration getDuration() {
+        return duration;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -64,11 +89,14 @@ public class Task {
         Task task = (Task) o;
         return getId() == task.getId() && Objects.equals(getName(),
                 task.getName()) && Objects.equals(getDescription(),
-                task.getDescription()) && getStatus() == task.getStatus();
+                task.getDescription()) && getStatus() == task.getStatus() &&
+                Objects.equals(getDuration(), task.getDuration()) &&
+                Objects.equals(getStartTime(), task.getStartTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getDescription(), getStatus());
+        return Objects.hash(getId(), getName(), getDescription(),
+                getStatus(), getDuration(), getStartTime());
     }
 }

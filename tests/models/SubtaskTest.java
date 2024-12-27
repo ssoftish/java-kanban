@@ -4,6 +4,8 @@ import managers.Managers;
 import managers.TaskManager;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +18,7 @@ class SubtaskTest {
         ArrayList<Integer> subtaskIds = new ArrayList<>();
         Epic epic = new Epic("testTask","testing", TaskStatus.NEW, subtaskIds);
         int epicId = taskManager.create(epic);
-        Subtask subtask = new Subtask("testSubtask", "testing", TaskStatus.NEW, epicId);
+        Subtask subtask = new Subtask("testSubtask", "testing", TaskStatus.NEW, epicId, Duration.ofMinutes(5), LocalDateTime.now());
         int id = taskManager.create(subtask);
 
         assertEquals(taskManager.getSubtask(id), subtask, "Subtasks with the same ID are not equal");

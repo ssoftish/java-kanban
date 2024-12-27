@@ -1,27 +1,33 @@
 package managers;
 import models.*;
 import managers.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FileBackedTaskManagerTest {
+public class FileBackedTaskManagerTest extends ManagerTest<FileBackedTaskManager>{
 
-
-    @Test
-    public void managerSavesAndReturnsEmptyFile() {
+    @BeforeEach
+    void init() {
         try {
             File file = File.createTempFile("testFile", ".txt");
-            FileBackedTaskManager manager = new FileBackedTaskManager(file);
-            assertTrue(manager.getTasks().isEmpty(), "Tasks are not null");
-            assertTrue(manager.getEpics().isEmpty(), "Epics are not null");
-            assertTrue(manager.getSubtasks().isEmpty(), "Subtasks are not null");
+            this.manager = new FileBackedTaskManager(file);
         } catch (IOException e) {
             System.out.println("Test file wasn't created");
         }
+
+    }
+    @Test
+    public void managerSavesAndReturnsEmptyFile() {
+        assertTrue(manager.getTasks().isEmpty(), "Tasks are not null");
+        assertTrue(manager.getEpics().isEmpty(), "Epics are not null");
+        assertTrue(manager.getSubtasks().isEmpty(), "Subtasks are not null");
     }
 
     @Test
@@ -30,11 +36,11 @@ public class FileBackedTaskManagerTest {
             File file = File.createTempFile("testFile", ".txt");
             FileBackedTaskManager manager1 = new FileBackedTaskManager(file);
 
-            int id1 = manager1.create(new Task("testTask","task",TaskStatus.NEW));
-            int id2 = manager1.create(new Epic("testEpic","epic", TaskStatus.NEW, new ArrayList<>()));
-            int id3 = manager1.create(new Subtask("testSubtask","subtask", TaskStatus.NEW, id2));
+            int id1 = manager1.create(new Task("testTask","task",TaskStatus.NEW, Duration.ofMinutes(5), LocalDateTime.now()));
+            int id2 = manager1.create(new Epic("testEpic","epic", TaskStatus.NEW, new ArrayList<>(), Duration.ofMinutes(1), LocalDateTime.MAX.minusMinutes(1)));
+            int id3 = manager1.create(new Subtask("testSubtask","subtask", TaskStatus.NEW, id2, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(8)));
 
-            FileBackedTaskManager manager = FileBackedTaskManager.loadFromFile(file);
+            manager = FileBackedTaskManager.loadFromFile(file);
 
             assertNotNull(manager1.getTasks(), "Manager didn't save tasks");
             assertNotNull(manager1.getEpics(), "Manager didn't save epics");

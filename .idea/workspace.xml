@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest">
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Исправлен алгоритм создания и обновления задач и подзадач">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/FileBackedTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Epic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/managers/FileBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/TaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/TaskManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint__7-solution-in-file-manager&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__8-solution-time-and-duration&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Админ/Desktop/jnc.lf/java-kanban1&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
@@ -95,7 +95,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
+  <component name="RunManager" selected="JUnit.All in java-kanban">
     <configuration name="All in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
@@ -166,9 +166,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in java-kanban" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest.managerSavesTasks" />
-        <item itemvalue="JUnit.All in java-kanban" />
         <item itemvalue="JUnit.tests in java-kanban" />
         <item itemvalue="JUnit.TaskManagerTest" />
       </list>
@@ -254,7 +254,39 @@
       <option name="project" value="LOCAL" />
       <updated>1735113836032</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Выполнены задачи 8 спринта">
+      <option name="closed" value="true" />
+      <created>1735167297606</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735167297606</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде">
+      <option name="closed" value="true" />
+      <created>1735249637337</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735249637337</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Исправлена реализация функции taskValidation">
+      <option name="closed" value="true" />
+      <created>1735256058739</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735256058739</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Исправлен алгоритм создания и обновления задач и подзадач">
+      <option name="closed" value="true" />
+      <created>1735294048552</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1735294048552</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,7 +307,11 @@
     <MESSAGE value="Выполнена реализация FileBackedTaskManager" />
     <MESSAGE value="Исправлено осуществление записи в файл и выгрузки из файла" />
     <MESSAGE value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлен алгоритм сохранения подзадач, добавлено собственное непроверяемое исключение, внесены прочие правки в FileBackedTaskManager и FileBackedTaskManagerTest" />
+    <MESSAGE value="Выполнены задачи 8 спринта" />
+    <MESSAGE value="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде" />
+    <MESSAGE value="Исправлена реализация функции taskValidation" />
+    <MESSAGE value="Исправлен алгоритм создания и обновления задач и подзадач" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправлен алгоритм создания и обновления задач и подзадач" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_kanban$EpicTest.ic" NAME="EpicTest Coverage Results" MODIFIED="1722069964698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
