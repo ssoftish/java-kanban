@@ -25,13 +25,13 @@ public class InMemoryTaskManager implements TaskManager {
         }
     });
 
-    public boolean taskValidation(Task task) {
+    private boolean taskValidation(Task task) {
         Set<Task> tasks = getPrioritisedTasks();
         boolean answer = true;
 
         for (Task otherTask : tasks) {
             if (task.getStartTime() != null) {
-                if ((!Objects.equals(task, otherTask))) {
+                if ((!Objects.equals(task.getId(), otherTask.getId()))) {
                     if (task.getStartTime().isAfter(otherTask.getEndTime()) ||
                             otherTask.getStartTime().isAfter(task.getEndTime())) {
                         answer = true;
