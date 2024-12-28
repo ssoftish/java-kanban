@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Исправлен алгоритм создания и обновления задач и подзадач">
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнено задание 9 спринта">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/InMemoryTaskManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/managers/TaskManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/managers/TaskManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adapters/DurationAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adapters/DurationAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/server/HttpTaskServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/server/HttpTaskServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +42,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2ibndu6uvghwE6HY2R7QF56CTBs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,33 +51,49 @@
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JAR Application.gson-2.9.0.jar.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.All in java-kanban.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EpicTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EpicTest.tasksShouldBeEqual.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.FileBackedTaskManagerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.FileBackedTaskManagerTest.managerSavesTasks.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.HistoryManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.getAllTasks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.getSubtask.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.updateNewEpic.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.updateNewSubtasks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.updateNewTask.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.server in java-kanban.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.tests in java-kanban.executor&quot;: &quot;Coverage&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sprint__8-solution-time-and-duration&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__9-solution-http-api&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Админ/Desktop/jnc.lf/java-kanban1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Админ/Desktop/jnc.lf/m1-t25-api/lib/gson-2.9.0.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Админ\Desktop\jnc.lf\java-kanban\lib" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Админ\Desktop\jnc.lf\java-kanban\lib" />
       <recent name="C:\Users\Админ\Desktop\jnc.lf\java-kanban\tests" />
       <recent name="C:\Users\Админ\Desktop\jnc.lf\java-kanban\tests\tests" />
       <recent name="C:\Users\Админ\Desktop\jnc.lf\java-kanban\src\models" />
@@ -95,82 +111,93 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in java-kanban">
-    <configuration name="All in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HttpTaskServerTest">
+    <configuration name="HttpTaskServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="managers.*" />
+          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileBackedTaskManagerTest.managerSavesTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskServerTest.getAllTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="managers.*" />
+          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
-      <option name="METHOD_NAME" value="managerSavesTasks" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="getAllTasks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskServerTest.updateNewEpic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="managers.*" />
+          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.TaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="updateNewEpic" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tests in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskServerTest.updateNewSubtasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="models.*" />
+          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="updateNewSubtasks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpTaskServerTest.updateNewTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="updateNewTask" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in java-kanban" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest.managerSavesTasks" />
-        <item itemvalue="JUnit.tests in java-kanban" />
-        <item itemvalue="JUnit.TaskManagerTest" />
+        <item itemvalue="JUnit.HttpTaskServerTest" />
+        <item itemvalue="JUnit.HttpTaskServerTest.updateNewTask" />
+        <item itemvalue="JUnit.HttpTaskServerTest.updateNewSubtasks" />
+        <item itemvalue="JUnit.HttpTaskServerTest.updateNewEpic" />
+        <item itemvalue="JUnit.HttpTaskServerTest.getAllTasks" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +313,55 @@
       <option name="project" value="LOCAL" />
       <updated>1735294048552</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735336048887</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1735336048888</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735358270252</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735358270252</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735360551141</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1735360551141</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735360564310</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1735360564310</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735360569818</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1735360569818</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735360953929</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1735360953929</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,7 +386,19 @@
     <MESSAGE value="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде" />
     <MESSAGE value="Исправлена реализация функции taskValidation" />
     <MESSAGE value="Исправлен алгоритм создания и обновления задач и подзадач" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлен алгоритм создания и обновления задач и подзадач" />
+    <MESSAGE value="Выполнено задание 9 спринта" />
+    <option name="LAST_COMMIT_MESSAGE" value="Выполнено задание 9 спринта" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/adapters/FileAdapter.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_kanban$EpicTest.ic" NAME="EpicTest Coverage Results" MODIFIED="1722069964698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
