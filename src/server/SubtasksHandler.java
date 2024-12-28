@@ -1,72 +1,55 @@
 package server;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 import com.sun.net.httpserver.HttpExchange;
-import models.*;
+import models.Subtask;
 import managers.TaskManager;
-import adapters.LocalDateTimeAdapter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 
 public class SubtasksHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
-            .create();
+    private final Gson gson;
 
-    public SubtasksHandler(TaskManager taskManager) {
+    public SubtasksHandler(TaskManager taskManager, Gson gson) {
         this.taskManager = taskManager;
+        this.gson = gson;
     }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        handle(exchange, this.taskManager);
-    }
-
-    @Override
-    public void handle(HttpExchange exchange, TaskManager taskManager) throws IOException {
         String path = exchange.getRequestURI().getPath();
         String requestMethod = exchange.getRequestMethod();
-        System.out.println("Received request: " + requestMethod + " " + path);
 
         switch (requestMethod) {
-            case "GET" :
-                switch (path) {
-                    case "/subtasks" :
-                        handleGetSubtasks(exchange, taskManager);
-                        break;
-                    case "/subtasks/" :
-                        handleGetSubtask(exchange, taskManager);
-                        break;
+            case "GET":
+                if ("/subtasks".equals(path)) {
+                    handleGetSubtasks(exchange);
+                } else {
+                    handleGetSubtask(exchange, path);
                 }
                 break;
-
-            case "POST" :
-                handlePostSubtask(exchange, taskManager);
+            case "POST":
+                handlePostSubtask(exchange);
                 break;
-
-            case "DELETE" :
-                handleDeleteSubtask(exchange, taskManager);
+            case "DELETE":
+                handleDeleteSubtask(exchange, path);
                 break;
-
-            default :
+            default:
                 sendNotFound(exchange);
+                break;
         }
     }
 
-    private void handleGetSubtasks(HttpExchange exchange, TaskManager taskManager) throws IOException {
+    private void handleGetSubtasks(HttpExchange exchange) throws IOException {
         String response = gson.toJson(taskManager.getSubtasks());
-        sendText(exchange, response);
+        sendText(exchange, response, 200);
     }
 
-    private void handleGetSubtask(HttpExchange exchange, TaskManager taskManager) throws IOException {
-        String path = exchange.getRequestURI().getPath();
+    private void handleGetSubtask(HttpExchange exchange, String path) throws IOException {
         String[] pathParts = path.split("/");
         if (pathParts.length != 3) {
             sendNotFound(exchange);
@@ -80,14 +63,14 @@ public class SubtasksHandler extends BaseHttpHandler {
                 sendNotFound(exchange);
             } else {
                 String response = gson.toJson(subtask);
-                sendText(exchange, response);
+                sendText(exchange, response, 200);
             }
         } catch (NumberFormatException e) {
             sendNotFound(exchange);
         }
     }
 
-    private void handlePostSubtask(HttpExchange exchange, TaskManager taskManager) throws IOException {
+    private void handlePostSubtask(HttpExchange exchange) throws IOException {
         InputStreamReader isr = new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8);
         BufferedReader br = new BufferedReader(isr);
         StringBuilder sb = new StringBuilder();
@@ -96,35 +79,19 @@ public class SubtasksHandler extends BaseHttpHandler {
             sb.append(line);
         }
         String requestBody = sb.toString();
-        Subtask subtask;
-
-        try {
-            subtask = gson.fromJson(requestBody, Subtask.class);
-        } catch (JsonSyntaxException e) {
-            sendNotFound(exchange);
-            return;
-        }
+        Subtask subtask = gson.fromJson(requestBody, Subtask.class);
 
         if (subtask == null) {
             sendNotFound(exchange);
             return;
         }
 
-        Integer subtaskId = subtask.getId();
-        if (subtaskId != null) {
-            System.out.println("Updated subtask: " + subtaskId);
-            taskManager.updateSubtask(subtask);
-        } else {
-            System.out.println("Created subtask: " + subtaskId);
-            taskManager.create(subtask);
-        }
-
+        taskManager.create(subtask);
         String response = gson.toJson(subtask);
-        sendText(exchange, response);
+        sendText(exchange, response, 201);
     }
 
-    private void handleDeleteSubtask(HttpExchange exchange, TaskManager taskManager) throws IOException {
-        String path = exchange.getRequestURI().getPath();
+    private void handleDeleteSubtask(HttpExchange exchange, String path) throws IOException {
         String[] pathParts = path.split("/");
         if (pathParts.length != 3) {
             sendNotFound(exchange);
@@ -137,8 +104,8 @@ public class SubtasksHandler extends BaseHttpHandler {
             if (subtask == null) {
                 sendNotFound(exchange);
             } else {
-                taskManager.deleteSubtask(subtask.getId());
-                sendText(exchange, "Deleted subtask: " + subtask.getId());
+                taskManager.deleteSubtask(subtaskId);
+                sendText(exchange, "Deleted subtask: " + subtaskId, 200);
             }
         } catch (NumberFormatException e) {
             sendNotFound(exchange);

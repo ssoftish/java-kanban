@@ -11,12 +11,11 @@ import java.time.LocalDateTime;
 
 public class HistoryHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
-            .create();
+    private final Gson gson;
 
-    public HistoryHandler(TaskManager taskManager) {
+    public HistoryHandler(TaskManager taskManager, Gson gson) {
         this.taskManager = taskManager;
+        this.gson = gson;
     }
 
     @Override
@@ -38,6 +37,6 @@ public class HistoryHandler extends BaseHttpHandler {
 
     private void handleGetHistory(HttpExchange exchange, TaskManager taskManager) throws IOException {
         String response = gson.toJson(taskManager.getHistory());
-        sendText(exchange, response);
+        sendText(exchange, response, 200);
     }
 }

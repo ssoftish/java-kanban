@@ -1,72 +1,55 @@
 package server;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 import com.sun.net.httpserver.HttpExchange;
 import models.Task;
 import managers.TaskManager;
-import adapters.LocalDateTimeAdapter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 
 public class TasksHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
-            .create();
+    private final Gson gson;
 
-    public TasksHandler(TaskManager taskManager) {
+    public TasksHandler(TaskManager taskManager, Gson gson) {
         this.taskManager = taskManager;
+        this.gson = gson;
     }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        handle(exchange, this.taskManager);
-    }
-
-    @Override
-    public void handle(HttpExchange exchange, TaskManager taskManager) throws IOException {
         String path = exchange.getRequestURI().getPath();
         String requestMethod = exchange.getRequestMethod();
-        System.out.println("Received request: " + requestMethod + " " + path);
 
         switch (requestMethod) {
-            case "GET" :
-                switch (path) {
-                    case "/tasks" :
-                        handleGetTasks(exchange, taskManager);
-                        break;
-                    case "/tasks/" :
-                        handleGetTask(exchange, taskManager);
-                        break;
+            case "GET":
+                if ("/tasks".equals(path)) {
+                    handleGetTasks(exchange);
+                } else {
+                    handleGetTask(exchange, path);
                 }
                 break;
-
-            case "POST" :
-                handlePostTask(exchange, taskManager);
+            case "POST":
+                handlePostTask(exchange);
                 break;
-
-            case "DELETE" :
-                handleDeleteTask(exchange, taskManager);
+            case "DELETE":
+                handleDeleteTask(exchange, path);
                 break;
-
             default:
                 sendNotFound(exchange);
+                break;
         }
     }
 
-    private void handleGetTasks(HttpExchange exchange, TaskManager taskManager) throws IOException {
+    private void handleGetTasks(HttpExchange exchange) throws IOException {
         String response = gson.toJson(taskManager.getTasks());
-        sendText(exchange, response);
+        sendText(exchange, response, 200);
     }
 
-    private void handleGetTask(HttpExchange exchange, TaskManager taskManager) throws IOException {
-        String path = exchange.getRequestURI().getPath();
+    private void handleGetTask(HttpExchange exchange, String path) throws IOException {
         String[] pathParts = path.split("/");
         if (pathParts.length != 3) {
             sendNotFound(exchange);
@@ -80,14 +63,14 @@ public class TasksHandler extends BaseHttpHandler {
                 sendNotFound(exchange);
             } else {
                 String response = gson.toJson(task);
-                sendText(exchange, response);
+                sendText(exchange, response, 200);
             }
         } catch (NumberFormatException e) {
             sendNotFound(exchange);
         }
     }
 
-    private void handlePostTask(HttpExchange exchange, TaskManager taskManager) throws IOException {
+    private void handlePostTask(HttpExchange exchange) throws IOException {
         InputStreamReader isr = new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8);
         BufferedReader br = new BufferedReader(isr);
         StringBuilder sb = new StringBuilder();
@@ -96,35 +79,19 @@ public class TasksHandler extends BaseHttpHandler {
             sb.append(line);
         }
         String requestBody = sb.toString();
-        Task task;
-
-        try {
-            task = gson.fromJson(requestBody, Task.class);
-        } catch (JsonSyntaxException e) {
-            sendNotFound(exchange);
-            return;
-        }
+        Task task = gson.fromJson(requestBody, Task.class);
 
         if (task == null) {
             sendNotFound(exchange);
             return;
         }
 
-        Integer taskId = task.getId();
-        if (taskId != null) {
-            System.out.println("Updated task: " + taskId);
-            taskManager.updateTask(task);
-        } else {
-            System.out.println("Created new task: " + taskId);
-            taskManager.create(task);
-        }
-
+        taskManager.create(task);
         String response = gson.toJson(task);
-        sendText(exchange, response);
+        sendText(exchange, response, 201);
     }
 
-    private void handleDeleteTask(HttpExchange exchange, TaskManager taskManager) throws IOException {
-        String path = exchange.getRequestURI().getPath();
+    private void handleDeleteTask(HttpExchange exchange, String path) throws IOException {
         String[] pathParts = path.split("/");
         if (pathParts.length != 3) {
             sendNotFound(exchange);
@@ -137,8 +104,8 @@ public class TasksHandler extends BaseHttpHandler {
             if (task == null) {
                 sendNotFound(exchange);
             } else {
-                taskManager.deleteTask(task.getId());
-                sendText(exchange, "Deleted task: " + task.getId());
+                taskManager.deleteTask(taskId);
+                sendText(exchange, "Deleted task: " + taskId, 200);
             }
         } catch (NumberFormatException e) {
             sendNotFound(exchange);

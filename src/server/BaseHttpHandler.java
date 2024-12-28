@@ -9,9 +9,8 @@ import java.io.OutputStream;
 
 public abstract class BaseHttpHandler implements HttpHandler {
 
-    @Override
-    public void handle(HttpExchange exchange) throws IOException {
-        // Реализация метода handle
+
+    public void handle(HttpExchange exchange, TaskManager taskManager) throws IOException {
         String response = "BaseHttpHandler response";
         exchange.sendResponseHeaders(200, response.getBytes().length);
         OutputStream os = exchange.getResponseBody();
@@ -19,8 +18,8 @@ public abstract class BaseHttpHandler implements HttpHandler {
         os.close();
     }
 
-    protected void sendText(HttpExchange exchange, String response) throws IOException {
-        exchange.sendResponseHeaders(200, response.getBytes().length);
+    protected void sendText(HttpExchange exchange, String response, int statusCode) throws IOException {
+        exchange.sendResponseHeaders(statusCode, response.getBytes().length);
         try (OutputStream os = exchange.getResponseBody()) {
             os.write(response.getBytes());
         }
@@ -28,19 +27,14 @@ public abstract class BaseHttpHandler implements HttpHandler {
 
     protected void sendNotFound(HttpExchange exchange) throws IOException {
         String response = "Not Found";
-        exchange.sendResponseHeaders(404, response.getBytes().length);
-        try (OutputStream os = exchange.getResponseBody()) {
-            os.write(response.getBytes());
-        }
+        sendText(exchange, response, 404);
     }
 
-    protected void sendHasInteractions(HttpExchange exchange) throws IOException {
-        String response = "Task has interactions";
-        exchange.sendResponseHeaders(409, response.getBytes().length);
-        try (OutputStream os = exchange.getResponseBody()) {
-            os.write(response.getBytes());
-        }
+    protected void sendConflict(HttpExchange exchange) throws IOException {
+        String response = "Conflict with existing task";
+        sendText(exchange, response, 409);
     }
 
-    public abstract void handle(HttpExchange exchange, TaskManager manager) throws IOException;
+    @Override
+    public abstract void handle(HttpExchange exchange) throws IOException;
 }

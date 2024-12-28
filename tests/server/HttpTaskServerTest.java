@@ -150,11 +150,11 @@ public class HttpTaskServerTest {
         URI url = URI.create("http://localhost:8080/subtasks/2");
         HttpRequest request = HttpRequest.newBuilder().uri(url).GET().build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        Subtask subTaskDeserialized = gson.fromJson(response.body(), Subtask.class);
+        Subtask subtaskDeserialized = gson.fromJson(response.body(), Subtask.class);
 
         assertEquals(200, response.statusCode(), "Status code is not 200");
-        assertNotNull(subTaskDeserialized, "Subtask is not received");
-        assertEquals(taskManager.getSubtask(subtask.getId()), subTaskDeserialized, "Received wrong subtask");
+        assertNotNull(subtaskDeserialized, "Subtask is not received");
+        assertEquals(taskManager.getSubtask(subtask.getId()), subtaskDeserialized, "Received wrong subtask");
     }
     @Test
     void getSubtasksByOneEpic() throws IOException, InterruptedException {
@@ -164,6 +164,7 @@ public class HttpTaskServerTest {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         Type subtaskType = new TypeToken<List<Subtask>>() {
         }.getType();
+
         List<Subtask> subtasksList = gson.fromJson(response.body(), subtaskType);
         List<Integer> ids = epic.getSubtasksIds();
         List<Subtask> testList = new ArrayList<>();
@@ -212,8 +213,8 @@ public class HttpTaskServerTest {
     void addNewTask() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         URI url = URI.create("http://localhost:8080/tasks");
-        Task task3 = new Task("testTask2", "test", TaskStatus.NEW, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(10));
-        String json = gson.toJson(task3);
+        Task task2 = new Task("testTask2", "test", TaskStatus.NEW, Duration.ofMinutes(3), LocalDateTime.now().plusMinutes(10));
+        String json = gson.toJson(task2);
 
         final HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(json);
         HttpRequest request = HttpRequest.newBuilder().uri(url).POST(body).build();
