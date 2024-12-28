@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнено задание 9 спринта">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/server/HttpTaskServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/server/HttpTaskServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/server/HttpTaskServerTest$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/server/HttpTaskServerTest$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/server/HttpTaskServerTest$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/server/HttpTaskServerTest$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/java-kanban/server/HttpTaskServerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/java-kanban/server/HttpTaskServerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/HttpTaskServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/HttpTaskServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adapters/DurationAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adapters/DurationAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/server/HttpTaskServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/server/HttpTaskServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,44 +47,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "JAR Application.gson-2.9.0.jar.executor": "Run",
-    "JUnit.All in java-kanban.executor": "Run",
-    "JUnit.EpicTest.executor": "Run",
-    "JUnit.EpicTest.tasksShouldBeEqual.executor": "Coverage",
-    "JUnit.FileBackedTaskManagerTest.executor": "Run",
-    "JUnit.FileBackedTaskManagerTest.managerSavesTasks.executor": "Run",
-    "JUnit.HistoryManagerTest.executor": "Run",
-    "JUnit.HttpTaskServerTest.executor": "Run",
-    "JUnit.HttpTaskServerTest.getAllTasks.executor": "Run",
-    "JUnit.HttpTaskServerTest.getSubtask.executor": "Run",
-    "JUnit.HttpTaskServerTest.updateNewEpic.executor": "Run",
-    "JUnit.HttpTaskServerTest.updateNewSubtasks.executor": "Run",
-    "JUnit.HttpTaskServerTest.updateNewTask.executor": "Run",
-    "JUnit.TaskManagerTest.executor": "Run",
-    "JUnit.server in java-kanban.executor": "Run",
-    "JUnit.tests in java-kanban.executor": "Coverage",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "sprint__9-solution-http-api",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Админ/Desktop/jnc.lf/m1-t25-api/lib/gson-2.9.0.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JAR Application.gson-2.9.0.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in java-kanban.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EpicTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EpicTest.tasksShouldBeEqual.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.FileBackedTaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FileBackedTaskManagerTest.managerSavesTasks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HistoryManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.getAllTasks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.getSubtask.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.updateNewEpic.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.updateNewSubtasks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HttpTaskServerTest.updateNewTask.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TaskManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.server in java-kanban.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.tests in java-kanban.executor&quot;: &quot;Coverage&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__9-solution-http-api&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Админ/Desktop/jnc.lf/m1-t25-api/lib/gson-2.9.0.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Админ\Desktop\jnc.lf\java-kanban\lib" />
@@ -356,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735360569818</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735360953929</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1735360953929</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -391,11 +396,6 @@
           <url>file://$PROJECT_DIR$/src/adapters/FileAdapter.java</url>
           <line>25</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/tests/server/HttpTaskServerTest.java</url>
-          <line>295</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

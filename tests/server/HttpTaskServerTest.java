@@ -338,10 +338,10 @@ public class HttpTaskServerTest {
             assertEquals(200, response.statusCode(), "Status code is not 200");
             Assertions.assertTrue(taskManager.getSubtasks().isEmpty(), "Subtask is not removed");
         } catch (IOException e) {
-            System.err.println("IOException occurred: " + e.getMessage());
+            System.out.println("IOException occurred: " + e.getMessage());
             e.printStackTrace();
         } catch (InterruptedException e) {
-            System.err.println("InterruptedException occurred: " + e.getMessage());
+            System.out.println("InterruptedException occurred: " + e.getMessage());
             e.printStackTrace();
         }
     }
