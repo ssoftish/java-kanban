@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Внесены правки">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_9_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_12_2024_12_55__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="45eafd1c-1ba9-4aa8-8a88-350357ee1049" name="Changes" comment="Выполнено задание 9 спринта">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-kanban.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/HttpTaskServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/HttpTaskServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/SubtasksHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/SubtasksHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/server/HttpTaskServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/server/HttpTaskServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +60,9 @@
     "JUnit.FileBackedTaskManagerTest.managerSavesTasks.executor": "Run",
     "JUnit.HistoryManagerTest.executor": "Run",
     "JUnit.HttpTaskServerTest.executor": "Run",
+    "JUnit.HttpTaskServerTest.updateNewEpic.executor": "Run",
+    "JUnit.HttpTaskServerTest.updateNewSubtasks.executor": "Run",
+    "JUnit.HttpTaskServerTest.updateNewTask.executor": "Run",
     "JUnit.TaskManagerTest.executor": "Run",
     "JUnit.server in java-kanban.executor": "Run",
     "JUnit.tests in java-kanban.executor": "Coverage",
@@ -109,38 +110,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HttpTaskServerTest">
-    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileBackedTaskManagerTest.managerSavesTasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.FileBackedTaskManagerTest" />
-      <option name="METHOD_NAME" value="managerSavesTasks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HttpTaskServerTest.updateNewTask">
     <configuration name="HttpTaskServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
@@ -156,7 +126,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskServerTest.updateNewEpic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <extension name="coverage">
         <pattern>
@@ -164,9 +134,42 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="managers" />
-      <option name="MAIN_CLASS_NAME" value="managers.TaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="updateNewEpic" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpTaskServerTest.updateNewSubtasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="updateNewSubtasks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpTaskServerTest.updateNewTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="updateNewTask" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HttpTaskServerTest.updateNewTask" />
+        <item itemvalue="JUnit.HttpTaskServerTest.updateNewEpic" />
+        <item itemvalue="JUnit.HttpTaskServerTest.updateNewSubtasks" />
         <item itemvalue="JUnit.HttpTaskServerTest" />
         <item itemvalue="JUnit.tests in java-kanban" />
-        <item itemvalue="JUnit.TaskManagerTest" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest.managerSavesTasks" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735294048552</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Выполнено задание 9 спринта">
+      <option name="closed" value="true" />
+      <created>1735336048887</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1735336048888</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,7 +343,8 @@
     <MESSAGE value="Добавлен тест на пересечение по времени, исправлены ошибки и недочеты в коде" />
     <MESSAGE value="Исправлена реализация функции taskValidation" />
     <MESSAGE value="Исправлен алгоритм создания и обновления задач и подзадач" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлен алгоритм создания и обновления задач и подзадач" />
+    <MESSAGE value="Выполнено задание 9 спринта" />
+    <option name="LAST_COMMIT_MESSAGE" value="Выполнено задание 9 спринта" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,6 +353,11 @@
           <url>file://$PROJECT_DIR$/src/adapters/FileAdapter.java</url>
           <line>25</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/tests/server/HttpTaskServerTest.java</url>
+          <line>295</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

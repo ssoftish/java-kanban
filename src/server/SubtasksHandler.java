@@ -11,6 +11,7 @@ import adapters.LocalDateTimeAdapter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 public class SubtasksHandler extends BaseHttpHandler {
@@ -87,7 +88,7 @@ public class SubtasksHandler extends BaseHttpHandler {
     }
 
     private void handlePostSubtask(HttpExchange exchange, TaskManager taskManager) throws IOException {
-        InputStreamReader isr = new InputStreamReader(exchange.getRequestBody(), "utf-8");
+        InputStreamReader isr = new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8);
         BufferedReader br = new BufferedReader(isr);
         StringBuilder sb = new StringBuilder();
         String line;
@@ -109,12 +110,12 @@ public class SubtasksHandler extends BaseHttpHandler {
             return;
         }
 
-        Integer subTaskId = subtask.getId();
-        if (subTaskId != null) {
-            System.out.println("Updated subtask: " + subTaskId);
+        Integer subtaskId = subtask.getId();
+        if (subtaskId != null) {
+            System.out.println("Updated subtask: " + subtaskId);
             taskManager.updateSubtask(subtask);
         } else {
-            System.out.println("Created subtask: " + subTaskId);
+            System.out.println("Created subtask: " + subtaskId);
             taskManager.create(subtask);
         }
 
